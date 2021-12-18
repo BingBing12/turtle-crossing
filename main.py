@@ -4,6 +4,7 @@ import random
 from cars import Car
 from player import Player
 from score import Score
+from lanes import Lanes
 
 
 def move():
@@ -16,6 +17,7 @@ screen.setup(width=600, height=500)
 screen.listen()
 screen.onkey(move, "Up")
 score = Score()
+lanes = Lanes()
 game_on = True
 car_speed = 0.2
 cars = []
