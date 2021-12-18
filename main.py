@@ -3,6 +3,7 @@ import time
 import random
 from cars import Car
 from player import Player
+from score import Score
 
 
 def move():
@@ -14,6 +15,7 @@ screen.tracer(0)
 screen.setup(width=600, height=500)
 screen.listen()
 screen.onkey(move, "Up")
+score = Score()
 game_on = True
 car_speed = 0.2
 cars = []
@@ -21,10 +23,11 @@ player = Player()
 while game_on:
     time.sleep(car_speed)
     screen.update()
-    if player.ycor() > 240:
+    if player.ycor() > 200:
         player.reset()
         car_speed *= 0.8
-    for lane in range(-180, 250, 40):
+        score.update()
+    for lane in range(-180, 200, 40):
         if random.randint(0, 40) == 1:
             car = Car(lane)
             cars.append(car)
@@ -35,6 +38,7 @@ while game_on:
             print(cars[0])
         elif car.ycor() == player.ycor() and car.distance(player) < 15:
             game_on = False
+            score.game_over()
         else:
             car.drive()
 screen.exitonclick()

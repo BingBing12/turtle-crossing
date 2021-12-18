@@ -6,7 +6,6 @@ class Player(Turtle):
         super().__init__()
         self.shape("turtle")
         self.penup()
-        self.level = 1
         self.setheading(90)
         self.goto(0, -220)
 
@@ -14,5 +13,4 @@ class Player(Turtle):
         self.forward(40)
 
     def reset(self):
-        self.level += 1
         self.goto(0, -220)
