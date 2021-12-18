@@ -35,9 +35,7 @@ while game_on:
             cars.append(car)
     for car in cars:
         if car.xcor() < -300:
-            print(cars[0])
             cars.pop(0)
-            print(cars[0])
         elif car.ycor() == player.ycor() and car.distance(player) < 15:
             game_on = False
             score.game_over()
